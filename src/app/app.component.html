@@ -1,0 +1,14 @@
+<h2>
+  Angular WebSocket Sample
+</h2>
+<p>
+  Server Url: {{url}}
+</p>
+<input (keyup.enter)="send()" placeholder="Send a message..." type="text" [formControl]="messageControl">
+<button (click)="send()">Send</button>
+
+<ng-container *ngIf="connection$ | async">
+  <ul>
+    <li *ngFor="let msg of messages">{{msg}}</li>
+  </ul>
+</ng-container>
